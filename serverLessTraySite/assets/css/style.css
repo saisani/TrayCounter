@@ -1,0 +1,418 @@
+/*=========
+general css start
+==========*/
+::selection {
+ background: #93d35f;
+ color:#fff;
+}
+*+html {
+	margin:0px;
+	padding:0px;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, header, footer, section, nav {
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+}
+img {
+	border:0px;
+	outline:none;
+}
+p {
+	margin:0px;
+	padding:0px 0px 15px 0px;
+}
+ul li, ol li {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.floatleft {
+	float:left;
+}
+.floatright {
+	float:right;
+}
+.flclear {
+	float:none;
+	clear:both;
+}
+.spacer2 {
+	height:2px;
+}
+.spacer5 {
+	height:5px;
+}
+.spacer10 {
+	height:10px;
+}
+.spacer15 {
+	height:15px;
+}
+.spacer20 {
+	height:20px;
+}
+.spacer30 {
+	height:30px;
+}
+.spacer40 {
+	height:40px;
+}
+.spacer50 {
+	height:50px;
+}
+.spacer60 {
+	height:60px;
+}
+input[type="text"]:focus, textarea:focus {
+}
+/*=============
+general css END
+============*/
+body {
+	background:#ffffff;
+	width:100%;
+	margin:0 auto;
+	padding:0px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	line-height: 26px;
+	color: #818181;
+	font-weight: 400;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	word-break: break-word;
+}
+a {
+	color:#333;
+	text-decoration:none;
+	outline: none;
+}
+a:hover {
+	color:#000;
+	text-decoration:none;
+	outline: none;
+}
+a:focus {
+	text-decoration:none;
+	outline:none;
+	outline-offset:0px;
+}
+.imgwidth img {
+	width:100%;
+}
+
+.graybox
+{
+	background:#e0e0e0;
+	border:solid 2px #8d8d8d;
+	padding:15px;
+	border-radius:10px;
+}
+#calc-contain{
+  position: relative;
+  padding:100px 0px 50px; 
+ }
+
+input[type=button] {
+  background:#1e1e1e; 
+	font-size:27px;
+	cursor: pointer;
+	width: 100%;
+	height:100px;
+	border-radius:10px;		
+	color: #fff;
+	line-height:66px;
+	text-align: center;
+	border:none;
+	position: relative;
+	    box-shadow: none;
+    outline: none;
+}
+input:hover[type=button]
+{
+	background:#000;
+}
+input[type = text] {
+  position: relative;
+  display: block;
+  width:100%;
+  margin:25px auto;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:700;
+  font-size:140px;
+  padding: 10px 0px;
+  border:none;
+  text-align:center;
+     box-shadow: none;
+    outline: none;
+	background:none;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #000;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:  #000;
+}
+
+::placeholder {
+  color:  #000;
+}
+.redline
+{
+	height: 5px;
+    background: #a72b3b;
+    border-radius: 5px;
+    margin-top:30px;
+    width: 60%;
+    position: absolute;
+    text-align: center;
+   top:0;
+    left: 24px;
+}
+.yellowline
+{
+	height: 5px;
+    background: #e6d255;
+    border-radius: 5px;
+    margin-top:30px;
+    width: 55%;
+    position: absolute;
+    text-align: center;
+    top:0;
+    left:27px;
+}
+.greenline
+{
+	height: 5px;
+    background: #429955;
+    border-radius: 5px;
+    margin-top:30px;
+    width: 55%;
+    position: absolute;
+    text-align: center;
+    top:0;
+    left:27px;
+}
+input.plusbtn[type="button"]
+{
+	background:	url(../images/plus.png) no-repeat center center;
+	background-size:43%;
+}
+input:hover.plusbtn[type="button"]
+{
+	background:	url(../images/plus.png) no-repeat center center;
+	background-size: 43%;
+}
+input.minusbtn[type="button"]
+{
+	background:	url(../images/minus.png) no-repeat center center;
+}
+input:hover.minusbtn[type="button"]
+{
+	background:	url(../images/minus.png) no-repeat center center;
+}
+.secondcalc .graybox
+{
+  background-color: #0f2e3d;
+  background: url(images/linear_bg_2.png);
+  background-repeat: repeat-x;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0f2e3d), to(#000000));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #000000, #0f2e3d);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #000000, #0f2e3d);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #000000, #0f2e3d);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #000000, #0f2e3d);
+  border:none;
+}
+.secondcalc
+{
+	background:	url(../images/bg.jpg) no-repeat top center;
+	background-size:cover;
+}
+.secondcalc input[type=button] {
+  background:transparent; 
+	font-size:27px;
+	cursor: pointer;
+	width: 100%;
+	height:100px;
+	border-radius:10px;		
+	color: #fff;
+	line-height:66px;
+	text-align: center;
+	border:none;
+	position: relative;
+	    box-shadow: none;
+    outline: none;
+}
+
+.secondcalc input:hover[type=button]
+{
+	background:transparent;
+}
+.secondcalc input.plusbtn[type="button"]
+{
+	background:	url(../images/plus.png) no-repeat center center;
+	background-size: 43%;
+}
+/*.secondcalc input:hover.plusbtn[type="button"]
+{
+	background:	url(../images/plus-hover.png) no-repeat center center;
+	background-size:35%;
+}*/
+.secondcalc input.minusbtn[type="button"]
+{
+	background:	url(../images/minus.png) no-repeat center center;
+}
+/*.secondcalc input:hover.minusbtn[type="button"]
+{
+	background:	url(../images/minus-hover.png) no-repeat center center;
+	background-size:35%;
+}*/
+
+
+/* Background color of the calculator. */
+.colorcalc
+{
+	/*background:#c873f9; (bright pink)*/ 
+    /*background: #9b59b6; (dull purple)*/
+    background: #3498db; /* (light blue)*/
+}
+.bgimg
+{
+	background:	url(../images/bg.jpg) no-repeat top center;
+	background-size:cover;
+}
+.colorcalc .graybox
+{
+	background:#131234;	
+	border:none;
+}
+.colorcalc input[type=button]
+{
+	border-radius:100%;
+	height: 90px;
+	background: #171638;	
+	font-size:48px;
+}
+/* Edit this value to change font size*/
+.colorcalc input.font28[type=button]
+{
+	font-size:20px;
+}
+.colorcalc input:hover[type=button]
+{
+	background: #429955;
+}
+.colorcalc .redline, .colorcalc .yellowline, .colorcalc .greenline
+{
+	margin-top: 25px;
+}
+.colorcalc input.plusbtn[type="button"]
+{
+	background:	url(../images/plus.png) no-repeat center center;
+	height:168px;
+	background-size: 38%;
+}
+.colorcalc input:hover.plusbtn[type="button"]
+{
+	background:	url(../images/plus-hover.png) no-repeat center center;
+	height:168px;	
+	background-size: 38%;
+}
+.colorcalc input.minusbtn[type="button"]
+{
+	background:	url(../images/minus.png) no-repeat center center;
+	height:128px;
+	background-size: 40%;
+}
+.colorcalc input:hover.minusbtn[type="button"]
+{
+	background:	url(../images/minus-hover.png) no-repeat center center;
+	height:128px;
+	background-size: 40%;
+}
+
+
+ @media (max-width: 1199.98px) {
+ input[type=button]
+ {
+ 	font-size:20px;
+ }
+ .secondcalc input[type=button]
+ {
+ 	font-size:20px;
+ }
+ .redline
+ {
+ 	left:20px;
+ }
+ .yellowline, .greenline
+ {
+ 	left:22px;
+ }
+}
+
+
+ @media (max-width: 991.98px) {
+.marmobbot3 {
+margin-bottom:30px;
+}
+input[type=button]
+ {
+ 	font-size:26px;
+ }
+ .secondcalc input[type=button]
+ {
+ 	font-size:26px;
+ }
+}
+
+
+ @media (max-width:767.98px) {
+ input.plusbtn[type="button"]
+{
+	background-size:25%;
+}
+input:hover.plusbtn[type="button"]
+{
+	background-size:25%;
+}
+input[type=button]
+ {
+ 	font-size:20px;
+ }
+ .secondcalc input[type=button]
+ {
+ 	font-size:20px;
+ }
+ .secondcalc input.plusbtn[type="button"]
+{
+	
+	background-size: 25%;
+}
+.secondcalc input:hover.plusbtn[type="button"]
+{
+	
+	background-size: 25%;
+}
+}
+
+
+ @media (max-width:575.98px) {
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Welcome to Calculator Design</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="colorcalc">
+<!-- Main div start -->
+<div class="maindiv">
+  <div id='calc-contain'>
+    <form name="calculator">
+      <div class="container">
+        <div class="row no-gutters justify-content-center">
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                <input type="button" value="  " onClick="increment()" data-num=107 class="plusbtn calcbtninput" />
+                <input type="text" name="answer" value="0" placeholder="0" id="calc-textbox" />
+                <input type="button" value="  " onClick="decrement()" data-num=109 class="minusbtn calcbtninput" />
+              </div>
+              <div class="col-lg-7 col-md-7">
+                <div class="graybox">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value="1" onClick="addValue(this)" data-num=49 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="2" onClick="addValue(this)" data-num=50 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="3" onClick="addValue(this)" data-num=51 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" OFF " onClick="" data-num=51 class="text-uppercase font28 calcbtninput" />
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value="4" onClick="addValue(this)" data-num=52 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="5" onClick="addValue(this)" data-num=53 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="6" onClick="addValue(this)" data-num=54 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" WIFI " onClick="" data-num=51 class="text-uppercase font28 calcbtninput" />
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value="7" onClick="addValue(this)" data-num=55 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="8" onClick="addValue(this)" data-num=56 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="9" onClick="addValue(this)" data-num=57 class="calcbtninput" />
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value=" Set " onClick="setCount(this)" class="text-uppercase font28 calcbtninput" />
+                      <div class="redline"></div>
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value="0" onClick="addValue(this)" data-num=48 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" Clear " onClick="clearAll()"  class="text-uppercase font28 calcbtninput" />
+                      <div class="yellowline"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Main div end -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script>
+  var isSet = false;
+
+  function setCount(button) {
+    isSet = !isSet;
+    
+    if(isSet) {
+      button_hold_color = '#429955';
+      button_text = "Unset";
+    }
+    else {
+      button_hold_color = '#171638';
+      button_text = "Set";
+    }
+
+    button.style.backgroundColor = button_hold_color;
+    button.value = button_text;
+
+    // send to python backend
+    if(isSet) {
+      var calcCount = document.getElementById('calc-textbox');
+      pywebview.api.setCount(parseInt(calcCount.value));
+    }
+  }
+
+  function increment() {
+    var calcText = document.getElementById('calc-textbox');
+    var calcValue = calcText.value;
+
+    if(calcValue < 999 && !isSet)
+      calcText.value = (parseInt(calcValue) + 1).toString();
+  }
+
+  function decrement() {
+    var calcText = document.getElementById('calc-textbox');
+    var calcValue = calcText.value;
+
+    if(calcValue > 0 && !isSet) {
+      calcText.value = (parseInt(calcValue) - 1).toString();
+    }
+  }
+
+  function clearAll() {
+    var calcText = document.getElementById('calc-textbox');
+
+    if(!isSet)
+      calcText.value = '0';
+  }
+
+  function addValue(button) {
+    var calcText = document.getElementById('calc-textbox');
+    var buttonValue = button.value;
+
+    if(!isSet) {
+      if(calcText.value == '0')
+        calcText.value = buttonValue;
+      else
+        calcText.value += buttonValue;
+    }
+  }
+
+</script>
+</body>
+</html>

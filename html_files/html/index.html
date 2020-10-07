@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Welcome to Calculator Design</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="colorcalc">
+<!-- Main div start -->
+<div class="maindiv">
+  <div id='calc-contain'>
+    <form name="calculator">
+      <div class="container">
+        <div class="row no-gutters justify-content-center">
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                <input type="button" value="  " onClick="calculator.answer.value += '+'" data-num=107 class="plusbtn calcbtninput" />
+                <input type="text" name="answer" placeholder="0" id="calc-textbox" />
+                <input type="button" value="  " onClick="calculator.answer.value += '-'" data-num=109 class="minusbtn calcbtninput" />
+              </div>
+              <div class="col-lg-7 col-md-7">
+                <div class="graybox">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value=" 1 " onClick="calculator.answer.value += '1'" data-num=49 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 2 " onClick="calculator.answer.value += '2'" data-num=50 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 3 " onClick="calculator.answer.value += '3'" data-num=51 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" Cancel " onClick="calculator.answer.value = ''" class="text-uppercase font28 calcbtninput" />
+                      <div class="redline"></div>
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value=" 4 " onClick="calculator.answer.value += '4'" data-num=52 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 5 " onClick="calculator.answer.value += '5'" data-num=53 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 6 " onClick="calculator.answer.value += '6'" data-num=54 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" Clear " onClick="calculator.answer.value = ''"  class="text-uppercase font28 calcbtninput" />
+                      <div class="yellowline"></div>
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value=" 7 " onClick="calculator.answer.value += '7'" data-num=55 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 8 " onClick="calculator.answer.value += '8'" data-num=56 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 9 " onClick="calculator.answer.value += '9'" data-num=57 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" Enter " onClick="calculator.answer.value = eval(calculator.answer.value)"  class="text-uppercase font28 calcbtninput" />
+                      <div class="greenline"></div>
+                    </div>
+                  </div>
+                  <div class="spacer30"></div>
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="button" value=" x " onClick="calculator.answer.value += '*'" data-num=106 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" 0 " onClick="calculator.answer.value += '0'" data-num=48 class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" / " onClick="calculator.answer.value += '/'" class="calcbtninput" />
+                    </div>
+                    <div class="col-3">
+                      <input type="button" value=" C " onClick="calculator.answer.value = ''" class="calcbtninput" />
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Main div end -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script>
+$(document).ready(function() {
+
+  var string = "";
+
+  /* Calculator input string */
+    document.onkeypress = function (e) {
+        keyPressed = String.fromCharCode(e.which);        
+        if($("#calc").length > 0){
+          $("#calc").append(keyPressed);
+        }else{
+          $("#calc").text(keyPressed);
+        }
+    };
+
+  /* Clear all */
+  $(".C").click(function() {
+    string = "";
+    $("#calc, #result").text("0");
+  });
+  /* Clear last entry */
+  $(".CE").click(function() {
+    string = string.slice(0, string.length - 1);
+    $("#calc").text(string);
+  });
+
+  /* Show result */
+  $(".equals").click(function() {
+    $("#result").text(eval(string));
+  });
+  
+  $(".equals").keyup(function() {
+    $("#result").text(eval(string));
+  });
+  
+  $( document ).keyup(function(event){
+  //alert(String.fromCharCode(event.which));
+	$('.calcbtninput[data-num="'+event.which+'"]').trigger('click');
+  });
+
+});
+
+
+
+
+</script>
+</body>
+</html>
