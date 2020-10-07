@@ -1,0 +1,4 @@
+pywebview
+gpiozero
+pygame
+playsound

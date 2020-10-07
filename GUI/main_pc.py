@@ -4,6 +4,7 @@ Use this program to develop on x86 due to lack of RPi libraries
 import logging as log
 import os
 import requests
+from playsound import playsound
 import urllib
 import webview
 
@@ -12,9 +13,14 @@ import webview
 # file paths
 LOG_FILE_PATH = "debug.log"
 HTML_FILES = "assets/index.html"
+SOUND_FILE = "sounds/microwave_beep.wav"
 WINDOW_WIDTH = 1400
 WINDOW_HEIGHT = 700
 GPIO_PIN = 17
+
+# plays beep synchronously
+def play_beep():
+    playsound(SOUND_FILE)
 
 # class to interact with js in web page
 class Api:
@@ -34,7 +40,9 @@ class Api:
         prev_count = self._count
         if count>=0 and count<999:
             self._count = count
-        log.info("Count has changed from %i to %i", prev_count, self._count)
+            play_beep()
+        if prev_count != count:
+            log.info("Count has changed from %i to %i", prev_count, self._count)
 
     def beginTray(self):
         self._foundTray = True
