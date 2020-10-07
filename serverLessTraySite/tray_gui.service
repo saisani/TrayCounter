@@ -1,0 +1,15 @@
+[Unit]
+Description=Tray Gui
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3  /home/pi/GUI/main.py
+WorkingDirectory=/home/pi/GUI
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
